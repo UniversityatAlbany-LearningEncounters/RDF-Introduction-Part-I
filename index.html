@@ -271,6 +271,13 @@ LIMIT 20
 
 
         <section>
+          <a href="#" class="image">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/d/d2/Kevin_Bacon.jpg" alt="Stationers' Company">
+          </a>
+          <h3><a href="http://en.wikipedia.org/wiki/Kevin_Bacon">Kevin Bacon</a></h3>
+        </section>
+
+        <section>
           <h4>Movies Starring Kevin Bacon</h4>
           <pre><code data-trim >
 PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
@@ -337,6 +344,87 @@ WHERE
    ?movie1 dbo:starring ?actor1 .
    ?movie2 dbo:starring ?actor1 .
    ?movie2 dbo:starring ?actor2 .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h4>Directors of Kevin Bacon Movies</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT DISTINCT ?movie ?director
+WHERE
+{
+   ?movie dbo:starring dbr:Kevin_Bacon .
+   ?movie dbo:director ?director .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h3><a href="http://en.wikipedia.org/wiki/Fukushima_Daiichi_Nuclear_Power_Plant">Fukushima</a></h3>
+          <a href="#" class="image">
+            <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fukushima_I_by_Digital_Globe_crop.jpg/640px-Fukushima_I_by_Digital_Globe_crop.jpg" alt="Fukushima Power Plant">
+          </a>
+          <h3><a href="http://en.wikipedia.org/wiki/Fukushima_Daiichi_Nuclear_Power_Plant">Nuclear Power Plant</a></h3>
+        </section>
+
+
+        <section>
+          <h4>Fukushima Power Plant</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT DISTINCT ?rel ?sub
+WHERE
+{
+   dbr:Fukushima_Daiichi_Nuclear_Power_Plant ?rel ?sub  .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+
+        <section>
+          <h4>Fukushima Reactor Supplier</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT DISTINCT ?supplier
+WHERE
+{
+   dbr:Fukushima_Daiichi_Nuclear_Power_Plant dbp:reactorSupplier ?supplier  .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+
+        <section>
+          <h4>Fukushima Shared Suppliers </h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT DISTINCT ?supplier ?plant
+WHERE
+{
+   dbr:Fukushima_Daiichi_Nuclear_Power_Plant dbp:reactorSupplier ?supplier  .
+   ?plant dbp:reactorSupplier ?supplier  .
 }
 LIMIT 50
           </code></pre>
