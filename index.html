@@ -142,9 +142,205 @@
         </section>
 
         <section>
+          <h3>What is ?</h3>
+          <p>
+Leonardo da Vinci
+          </p>
+        </section>
+
+        <section>
+          <p><a href="http://dbpedia.org/resource/Leonardo_da_Vinci">http://dbpedia.org/resource/Leonardo_da_Vinci</a></p>
+        </section>
+
+        <section>
+          <h1>IRI</h1>
+          <h4>International Resource Identifier</h4>
+        </section>
+
+        <section>
+          <h1>URI</h1>
+          <h4>Uniform Resource Identifier</h4>
+        </section>
+
+        <section>
+          <h1>IRI</h1>
+          <h4>is a generalization of</h4>
+          <h1>URI</h1>
+        </section>
+
+        <section>
+          <h1>IRI</h1>
+          <h4>can use non-ASCII characters</h4>
+        </section>
+
+        <section>
+          <h1>IRI</h1>
+          <p>can appear in all three positions in a triplet</p>
+        </section>
+
+        <section>
+          <p><a href="http://xmlns.com/foaf/0.1/knows">http://xmlns.com/foaf/0.1/knows</a></p>
+        </section>
+
+        <section>
+          <p><a href="http://dbpedia.org/resource/Leonardo_da_Vinci">http://dbpedia.org/resource/Leonardo_da_Vinci</a></p>
+          <p><a href="http://xmlns.com/foaf/0.1/knows">http://xmlns.com/foaf/0.1/knows</a></p>
+          <p><a href="http://dbpedia.org/resource/Andrea_del_Verrocchio">http://dbpedia.org/resource/Andrea_del_Verrocchio</a></p>
+        </section>
+
+        <section>
+          <h4>
+[Leonardo]----[knows]----[Andrea]  .
+          </h4>
+        </section>
+
+        <section>
           <h2><a href="http://www.w3.org/TR/2014/NOTE-rdf11-primer-20140225/">RDF Primer</a></h2>
           </a>
           <h4><a href="http://www.w3.org">www.w3.org</a></h4>
+        </section>
+
+        <section>
+          <h2>Your Turn !</h2>
+        </section>
+
+        <section>
+          <h1>SPARQL</h1>
+          <h3>Query Language</h3>
+        </section>
+
+        <section>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <p><a href="http://www.w3.org/wiki/SparqlEndpoints">http://www.w3.org/wiki/SparqlEndpoints</a></p>
+        </section>
+
+        <section>
+          <h4>SPARQL Query</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT ?thing
+WHERE
+{
+   ?thing dbo:state dbr:New_York .
+}
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h4>SPARQL Query</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT ?thing
+WHERE
+{
+   ?thing dbo:state dbr:New_York .
+}
+ORDER BY DESC(?thing)
+LIMIT 20
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h4>SPARQL Query</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT ?thing ?rel
+WHERE
+{
+   ?thing ?rel dbr:New_York .
+}
+ORDER BY DESC(?thing)
+LIMIT 20
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+
+        <section>
+          <h4>Movies Starring Kevin Bacon</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT ?movie
+WHERE
+{
+   ?movie dbo:starring dbr:Kevin_Bacon .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h4>Actors Co-Starring Kevin Bacon</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT ?movie ?actor
+WHERE
+{
+   ?movie dbo:starring dbr:Kevin_Bacon .
+   ?movie dbo:starring ?actor .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h4>Distinct Actors Co-Starring Kevin Bacon</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT DISTINCT ?actor
+WHERE
+{
+   ?movie dbo:starring dbr:Kevin_Bacon .
+   ?movie dbo:starring ?actor .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
+        </section>
+
+        <section>
+          <h4>Second Degree of Kevin Bacon</h4>
+          <pre><code data-trim >
+PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbp: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+SELECT DISTINCT ?actor2
+WHERE
+{
+   ?movie1 dbo:starring dbr:Kevin_Bacon .
+   ?movie1 dbo:starring ?actor1 .
+   ?movie2 dbo:starring ?actor1 .
+   ?movie2 dbo:starring ?actor2 .
+}
+LIMIT 50
+          </code></pre>
+          <p><a href="http://dbpedia-live.openlinksw.com/sparql">http://dbpedia-live.openlinksw.com/sparql</a></p>
         </section>
 
 
